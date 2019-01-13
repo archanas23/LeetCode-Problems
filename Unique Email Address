@@ -1,0 +1,29 @@
+class Solution {
+    public int numUniqueEmails(String[] emails) {
+        Set<String> set=new HashSet<>();
+        
+        
+        for(String s:emails)
+        {
+            StringBuilder sb=new StringBuilder();
+            for(int i=0;i<s.length();i++)
+            {
+                char c=s.charAt(i);
+                if(c=='+'|| c=='@')
+                {
+                    break;
+                }
+                else if(c!='.')
+                {
+                    sb.append(c);
+                }
+                
+            }
+            sb.append(s.substring(s.indexOf('@')));
+            set.add(sb.toString());
+            System.out.println(set);
+        }
+        return set.size();
+    
+    }
+}
